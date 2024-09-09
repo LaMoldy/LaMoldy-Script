@@ -13,7 +13,7 @@ As a result, this project could have large periods of breaks while I learn the n
 Clone the repository and build the project with Golang in a location that you want the project:
 ```bash
 git clone https://github.com/LaMoldy/LaMoldy-Script.git
-go build
+go build cmd/lsc
 ```
 
 ## Usage
@@ -21,8 +21,7 @@ To use the compiler:
 1. Create a ls file
 2. Run the following commands:
 ```bash
-lsc <source_file>.ls
-.\source_file
+.\lsc <source_file>.ls
 ```
 
 ## Contributing
