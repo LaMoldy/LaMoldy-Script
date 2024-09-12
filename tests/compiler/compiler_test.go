@@ -1,4 +1,4 @@
-package tests
+package compiler
 
 import (
 	"os"
@@ -55,7 +55,7 @@ func TestFileNameWithThreeCharacters(t *testing.T) {
 }
 
 func TestValidFileName(t *testing.T) {
-	os.Args = []string{"", "a.ls"}
+	os.Args = []string{"", "../../example.ls"}
 
 	err := compiler.Run()
 	if err != nil {
@@ -64,10 +64,10 @@ func TestValidFileName(t *testing.T) {
 }
 
 func TestInvalidFileExtension(t *testing.T) {
-	os.Args = []string{"", "a.lc"}
+	os.Args = []string{"", "example.lc"}
 
 	err := compiler.Run()
 	if err == nil {
-		t.Error("Got err expected nil")
+		t.Error("Got nil expected err")
 	}
 }
