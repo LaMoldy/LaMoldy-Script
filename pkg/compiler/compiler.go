@@ -2,7 +2,10 @@ package compiler
 
 import (
 	"errors"
+	"fmt"
 	"os"
+
+	"github.com/lamoldy/lamoldy-script/pkg/file"
 )
 
 func Run() error {
@@ -15,6 +18,13 @@ func Run() error {
 	if err != nil {
 		return err
 	}
+
+	fileData, err := file.GetFileContent()
+	if err != nil {
+		return err
+	}
+
+	fmt.Println(string(fileData))
 
 	return nil
 }
