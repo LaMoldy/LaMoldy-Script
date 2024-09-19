@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/lamoldy/lamoldy-script/pkg/file"
+	"github.com/lamoldy/lamoldy-script/pkg/lexer"
 )
 
 func Run() error {
@@ -25,6 +26,16 @@ func Run() error {
 	}
 
 	fmt.Println(string(fileData))
+
+	lexer := lexer.Create(fileData)
+	err = lexer.LexProgram()
+	if err != nil {
+		return err
+	}
+
+	for _, t := range lexer.Tokens {
+		fmt.Println(t.String())
+	}
 
 	return nil
 }
